@@ -1,85 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 Architect CV</title>
+    <title>Abrizeni - Web3 Architect CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
-                        primary: '#0f172a', // Slate 900
-                        secondary: '#475569', // Slate 600
-                        accent1: '#2563eb', // Blue 600
-                        accent2: '#06b6d4', // Cyan 500
-                        surface: '#ffffff',
-                        background: '#f8fafc', // Slate 50
+                        primary: '#ffffff',
+                        secondary: '#a1a1aa',
+                        accent1: '#38bdf8',
+                        accent2: '#22d3ee',
+                        background: '#030712', // Very deep blue/black
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'text-shimmer': 'textShimmer 3s ease-out infinite alternate',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        textShimmer: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #f8fafc; color: #0f172a; }
+        body { 
+            background-color: #030712; 
+            color: #ffffff; 
+            overflow-x: hidden;
+        }
+        
+        /* Premium Glass Card with Hover Glow */
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        /* Inner light reflection effect */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
+            transform: skewX(-20deg);
+            transition: 0.7s;
+        }
+
         .glass-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15), inset 0 0 20px rgba(56, 189, 248, 0.05);
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #2563eb, #06b6d4);
+
+        .glass-card:hover::before {
+            left: 200%;
+        }
+
+        /* Animated Gradient Text */
+        .gradient-text-animated {
+            background: linear-gradient(to right, #38bdf8, #22d3ee, #818cf8, #38bdf8);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .bg-gradient-soft {
-            background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.08), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.08), transparent 40%);
-        }
+
+        /* Delay utilities for entrance animation */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
     </style>
 </head>
-<body class="bg-background min-h-screen relative overflow-x-hidden">
-    <div class="absolute inset-0 bg-gradient-soft pointer-events-none"></div>
+<body class="min-h-screen relative selection:bg-accent1/30 selection:text-accent1">
 
-    <main class="max-w-6xl mx-auto px-6 py-12 relative z-10">
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-0 flex justify-center items-center overflow-hidden">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-accent1 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-accent2 rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-16 relative z-10">
         
-        <header class="mb-12 flex flex-col md:flex-row items-center md:items-start gap-8 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-            <div class="w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-slate-100 flex items-center justify-center relative">
-                <img src="https://i.imgur.com/lNCAtUZ.png" alt="Profile Photo" class="w-full h-full object-cover z-10" onerror="this.style.display='none'">
-                <span class="absolute text-slate-400 text-sm text-center px-4">Insert<br>Photo Here</span>
+        <header class="mb-12 flex flex-col md:flex-row items-center md:items-start gap-10 glass-card p-10 rounded-[2rem] opacity-0 animate-fade-in-up">
+            
+            <div class="relative group">
+                <div class="absolute inset-0 bg-gradient-to-r from-accent1 to-accent2 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 animate-pulse-slow"></div>
+                <div class="w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-3xl overflow-hidden border border-white/20 bg-white/5 flex items-center justify-center relative z-10 transform group-hover:scale-105 transition duration-500">
+                    <img src="https://i.imgur.com/lNCAtUZ.png" alt="Profile Photo" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                </div>
             </div>
 
-            <div class="flex-1 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 tracking-tight">Abrizeni Duha Perbangga, S.Kom</h1> <h2 class="text-xl md:text-2xl font-semibold mb-4 gradient-text">Web3 Architect & Full-Stack Developer</h2>
+            <div class="flex-1 text-center md:text-left mt-4 md:mt-0">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent1/10 border border-accent1/20 text-accent1 text-xs font-semibold uppercase tracking-widest mb-4">
+                    <span class="w-2 h-2 rounded-full bg-accent1 animate-ping"></span> Available for Opportunities
+                </div>
                 
-                <p class="text-secondary max-w-2xl mb-6 text-sm md:text-base leading-relaxed">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-3 tracking-tight">Abrizeni Duha Perbangga</h1> 
+                <h2 class="text-xl md:text-3xl font-bold mb-6 gradient-text-animated animate-text-shimmer">Web3 Architect & Full-Stack Developer</h2>
+                
+                <p class="text-secondary max-w-2xl mb-8 text-base leading-relaxed">
                     A technical architect bridging complex legal frameworks with decentralized technologies. Proven track record as a solo founder building Solana ecosystems, RWA tokenization platforms, and AI agents.
                 </p>
 
-                <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <a href="https://x.com/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="https://x.com/perbangga" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 text-sm font-medium text-slate-300 shadow-lg hover:shadow-accent1/20">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"/></svg>
                         @perbangga
                     </a>
-                    <a href="https://t.me/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
-                        <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    <a href="https://t.me/perbangga" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 text-sm font-medium text-slate-300 shadow-lg hover:shadow-accent1/20">
+                        <svg class="w-4 h-4 text-accent1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                         @perbangga
                     </a>
-                    <a href="https://github.com/Zenidp/" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
+                    <a href="https://github.com/Zenidp/" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 text-sm font-medium text-slate-300 shadow-lg hover:shadow-accent1/20">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
                         Zenidp
                     </a>
-                    <a href="https://linkedin.com/in/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0a66c2]/10 border border-[#0a66c2]/20 hover:bg-[#0a66c2]/20 transition text-sm font-medium text-[#0a66c2]">
+                    <a href="https://linkedin.com/in/perbangga" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0a66c2]/10 border border-[#0a66c2]/30 hover:bg-[#0a66c2]/20 hover:-translate-y-1 transition duration-300 text-sm font-medium text-[#60a5fa] shadow-lg hover:shadow-[#0a66c2]/20">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         in/perbangga
                     </a>
@@ -89,94 +154,106 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="md:col-span-2 glass-card rounded-2xl p-8">
-                <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-accent1"></span> About Me
+            <div class="md:col-span-2 glass-card rounded-[2rem] p-8 opacity-0 animate-fade-in-up delay-100">
+                <h3 class="text-xl font-bold text-primary mb-5 flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-white/5 border border-white/10"><svg class="w-5 h-5 text-accent1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>
+                    About Me
                 </h3>
-                <p class="text-secondary leading-relaxed mb-4">
+                <p class="text-secondary leading-relaxed mb-4 text-[15px]">
                     I am a professional at the Ministry of ATR/BPN by day, and a relentless Web3 Architect by night. I specialize in bridging traditional legal frameworks with decentralized technologies.
                 </p>
-                <p class="text-secondary leading-relaxed">
-                    As a <span class="text-primary font-semibold">Crypto Native</span> and Solo Founder, my ultimate satisfaction comes from building platforms that solve real-world problems. <strong>I am driven by the challenge of architecting robust financial infrastructures that are transparent, secure, and ready for global adoption.</strong>
+                <p class="text-secondary leading-relaxed text-[15px]">
+                    As a <span class="text-primary font-semibold border-b border-accent1/50 pb-0.5">Crypto Native</span> and Solo Founder, my ultimate satisfaction comes from building platforms that solve real-world problems. <strong class="text-white">I am driven by the challenge of architecting robust financial infrastructures that are transparent, secure, and ready for global adoption.</strong>
                 </p>
             </div>
 
-            <div class="glass-card rounded-2xl p-8 bg-gradient-to-br from-white to-blue-50/50">
-                <h3 class="text-lg font-bold text-primary mb-4">The Hardest Problem</h3>
-                <p class="text-secondary text-sm leading-relaxed">
-                    Bridging law with Web3. In <strong>TRWASET</strong>, I made properties liquid by mapping subrogation & cessie into smart contracts. In <strong>Solinkify</strong>, I replaced costly fiat fees with a 0.4% instant wallet gateway. True innovation lies in simplifying complexity.
+            <div class="glass-card rounded-[2rem] p-8 bg-gradient-to-br from-white/[0.02] to-accent1/[0.05] opacity-0 animate-fade-in-up delay-200">
+                <h3 class="text-xl font-bold text-primary mb-5 flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-white/5 border border-white/10"><svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                    The Hardest Problem
+                </h3>
+                <p class="text-secondary text-[15px] leading-relaxed">
+                    Bridging law with Web3. In <strong class="text-white">TRWASET</strong>, I made properties liquid by mapping subrogation & cessie into smart contracts. In <strong class="text-white">Solinkify</strong>, I replaced costly fiat fees with a 0.4% instant wallet gateway. <span class="text-accent1 font-medium mt-2 block">True innovation lies in simplifying complexity.</span>
                 </p>
             </div>
 
-            <div class="md:col-span-3 glass-card rounded-2xl p-8">
-                <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-accent2"></span> Built from Scratch (Startups)
+            <div class="md:col-span-3 glass-card rounded-[2rem] p-8 opacity-0 animate-fade-in-up delay-300">
+                <h3 class="text-xl font-bold text-primary mb-8 flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-white/5 border border-white/10"><svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                    Built from Scratch (Startups)
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-4 font-bold">TR</div>
-                        <h4 class="text-primary font-bold mb-2">TRWASET | trwaset.com</h4>
-                        <p class="text-secondary text-sm">RWA Tokenization platform transforming illiquid property assets into liquid digital assets using legal-backed smart contracts.</p>
+                    <div class="p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-blue-500/30 transition duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-5 font-bold text-xl border border-blue-500/20 group-hover:bg-blue-500/20 group-hover:scale-110 transition duration-300">TR</div>
+                        <h4 class="text-white font-bold mb-2 text-lg">TRWASET</h4>
+                        <p class="text-accent1 text-xs font-mono mb-4">trwaset.com</p>
+                        <p class="text-secondary text-[14px]">RWA Tokenization platform transforming illiquid property assets into liquid digital assets using legal-backed smart contracts.</p>
                     </div>
-                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-100 text-cyan-600 flex items-center justify-center mb-4 font-bold">SO</div>
-                        <h4 class="text-primary font-bold mb-2">Solinkify | solinkify.com</h4>
-                        <p class="text-secondary text-sm">Omni-agent ecosystem on the Solana network merging autonomous AI (x402), borderless commerce (Blinks), and DePIN.</p>
+                    <div class="p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-cyan-500/30 transition duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5 font-bold text-xl border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:scale-110 transition duration-300">SO</div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Solinkify</h4>
+                        <p class="text-accent2 text-xs font-mono mb-4">solinkify.com</p>
+                        <p class="text-secondary text-[14px]">Omni-agent ecosystem on the Solana network merging autonomous AI (x402), borderless commerce (Blinks), and DePIN.</p>
                     </div>
-                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
-                        <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4 font-bold">ZE</div>
-                        <h4 class="text-primary font-bold mb-2">Zenith2194 Escrow | zenith2194.pinet.com</h4>
-                        <p class="text-secondary text-sm">A trusted, zero-downtime third-party escrow service built on the Pi Network to ensure completely secure transactions.</p>
+                    <div class="p-6 rounded-2xl bg-[#0a0a0a] border border-white/5 hover:border-indigo-400/30 transition duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-5 font-bold text-xl border border-indigo-500/20 group-hover:bg-indigo-500/20 group-hover:scale-110 transition duration-300">ZE</div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Zenith2194</h4>
+                        <p class="text-indigo-400 text-xs font-mono mb-4">zenith2194.pinet.com</p>
+                        <p class="text-secondary text-[14px]">A trusted, zero-downtime third-party escrow service built on the Pi Network to ensure completely secure transactions.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="md:col-span-2 glass-card rounded-2xl p-8">
-                <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-accent1"></span> Professional Experience
+            <div class="md:col-span-2 glass-card rounded-[2rem] p-8 opacity-0 animate-fade-in-up delay-400">
+                <h3 class="text-xl font-bold text-primary mb-8 flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-white/5 border border-white/10"><svg class="w-5 h-5 text-accent1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                    Professional Experience
                 </h3>
-                <div class="relative border-l-2 border-slate-200 ml-3 pl-6 pb-8">
-                    <div class="absolute w-3.5 h-3.5 bg-accent1 rounded-full -left-[9px] top-1.5 shadow-[0_0_0_4px_rgba(37,99,235,0.2)]"></div>
-                    <h4 class="text-primary font-bold text-lg">Computer Institutions</h4>
-                    <p class="text-accent1 font-medium text-sm mb-3">Ministry of ATR/BPN, Indonesia • 2019 - Present</p>
-                    <ul class="text-secondary text-sm list-disc ml-4 space-y-2">
-                        <li>Created <strong>Senta (sentuh-tanahku-ai)</strong>, an AI Agent for answering public land matter inquiries.</li>
-                        <li>Architected innovations combining Cessie & Subrogation business flows into the Web3 ecosystem on Solana for property tokenization.</li>
+                <div class="relative border-l-2 border-white/10 ml-4 pl-8 pb-10">
+                    <div class="absolute w-4 h-4 bg-accent1 rounded-full -left-[9px] top-1 shadow-[0_0_15px_rgba(56,189,248,0.5)] border-2 border-[#030712]"></div>
+                    <h4 class="text-white font-bold text-xl">Computer Institutions</h4>
+                    <p class="text-accent1 font-medium text-sm mb-4 mt-1">Ministry of ATR/BPN, Indonesia • 2019 - Present</p>
+                    <ul class="text-secondary text-[15px] list-none space-y-3">
+                        <li class="relative before:content-['▹'] before:absolute before:-left-5 before:text-accent1">Created <strong class="text-white font-semibold">Senta (sentuh-tanahku-ai)</strong>, an AI Agent for answering public land matter inquiries.</li>
+                        <li class="relative before:content-['▹'] before:absolute before:-left-5 before:text-accent1">Architected innovations combining Cessie & Subrogation business flows into the Web3 ecosystem on Solana for property tokenization.</li>
                     </ul>
                 </div>
-                <div class="relative border-l-2 border-transparent ml-3 pl-6">
-                    <div class="absolute w-3.5 h-3.5 bg-slate-300 rounded-full -left-[9px] top-1.5 border-2 border-white"></div>
-                    <h4 class="text-primary font-bold text-lg">B.S. Computer System</h4>
-                    <p class="text-secondary font-medium text-sm mb-2">Universitas Komputer Indonesia (UNIKOM) • 2013 - 2017</p>
-                    <p class="text-slate-500 text-sm">Created a SmartHome Concept directly from the Internet using VPS and Arduino as a controller and logic processor.</p>
+                <div class="relative border-l-2 border-transparent ml-4 pl-8">
+                    <div class="absolute w-4 h-4 bg-slate-600 rounded-full -left-[9px] top-1 border-2 border-[#030712]"></div>
+                    <h4 class="text-white font-bold text-xl">B.S. Computer System</h4>
+                    <p class="text-secondary font-medium text-sm mb-3 mt-1">Universitas Komputer Indonesia (UNIKOM) • 2013 - 2017</p>
+                    <p class="text-slate-400 text-[15px]">Created a SmartHome Concept directly from the Internet using VPS and Arduino as a controller and logic processor.</p>
                 </div>
             </div>
 
-            <div class="glass-card rounded-2xl p-8">
-                <h3 class="text-lg font-bold text-primary mb-6">Tech Stack & Interests</h3>
-                <div class="mb-6">
-                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Blockchain</h4>
+            <div class="glass-card rounded-[2rem] p-8 opacity-0 animate-fade-in-up delay-500">
+                <h3 class="text-xl font-bold text-primary mb-8 flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-white/5 border border-white/10"><svg class="w-5 h-5 text-accent2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg></div>
+                    Tech & Focus
+                </h3>
+                <div class="mb-8">
+                    <h4 class="text-[11px] text-slate-500 font-bold uppercase tracking-widest mb-4">Blockchain</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-700 rounded-md text-xs font-medium">Solana</span>
-                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Rust</span>
-                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Anchor</span>
-                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Blinks</span>
+                        <span class="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-500/20 transition cursor-default">Solana</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-lg text-sm font-medium hover:bg-white/10 transition cursor-default">Rust</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-lg text-sm font-medium hover:bg-white/10 transition cursor-default">Anchor</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-lg text-sm font-medium hover:bg-white/10 transition cursor-default">Blinks</span>
                     </div>
                 </div>
-                <div class="mb-6">
-                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Engineering</h4>
+                <div class="mb-8">
+                    <h4 class="text-[11px] text-slate-500 font-bold uppercase tracking-widest mb-4">Engineering</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Backend / Infra</span>
-                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Fullstack</span>
-                        <span class="px-3 py-1 bg-cyan-50 border border-cyan-100 text-cyan-700 rounded-md text-xs font-medium">AI / ML</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-lg text-sm font-medium hover:bg-white/10 transition cursor-default">Backend / Infra</span>
+                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-slate-300 rounded-lg text-sm font-medium hover:bg-white/10 transition cursor-default">Fullstack</span>
+                        <span class="px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-lg text-sm font-medium hover:bg-cyan-500/20 transition cursor-default">AI / ML</span>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Focus Areas</h4>
+                    <h4 class="text-[11px] text-slate-500 font-bold uppercase tracking-widest mb-4">Focus Areas</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">RWA</span>
-                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">DePIN</span>
-                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">AI Agents</span>
+                        <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg text-sm font-medium shadow-[0_0_10px_rgba(99,102,241,0.1)]">RWA</span>
+                        <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg text-sm font-medium shadow-[0_0_10px_rgba(99,102,241,0.1)]">DePIN</span>
+                        <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg text-sm font-medium shadow-[0_0_10px_rgba(99,102,241,0.1)]">AI Agents</span>
                     </div>
                 </div>
             </div>
