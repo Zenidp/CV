@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Architect CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#0f172a', // Slate 900
+                        secondary: '#475569', // Slate 600
+                        accent1: '#2563eb', // Blue 600
+                        accent2: '#06b6d4', // Cyan 500
+                        surface: '#ffffff',
+                        background: '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-soft {
+            background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.08), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.08), transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen relative overflow-x-hidden">
+    <div class="absolute inset-0 bg-gradient-soft pointer-events-none"></div>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 relative z-10">
+        
+        <header class="mb-12 flex flex-col md:flex-row items-center md:items-start gap-8 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+            <div class="w-40 h-40 md:w-48 md:h-48 shrink-0 rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-slate-100 flex items-center justify-center relative">
+                <img src="https://i.imgur.com/lNCAtUZ.png" alt="Profile Photo" class="w-full h-full object-cover z-10" onerror="this.style.display='none'">
+                <span class="absolute text-slate-400 text-sm text-center px-4">Insert<br>Photo Here</span>
+            </div>
+
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2 tracking-tight">Abrizeni Duha Perbangga, S.Kom</h1> <h2 class="text-xl md:text-2xl font-semibold mb-4 gradient-text">Web3 Architect & Full-Stack Developer</h2>
+                
+                <p class="text-secondary max-w-2xl mb-6 text-sm md:text-base leading-relaxed">
+                    A technical architect bridging complex legal frameworks with decentralized technologies. Proven track record as a solo founder building Solana ecosystems, RWA tokenization platforms, and AI agents.
+                </p>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="https://x.com/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 5.964H5.078z"/></svg>
+                        @perbangga
+                    </a>
+                    <a href="https://t.me/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
+                        <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                        @perbangga
+                    </a>
+                    <a href="https://github.com/Zenidp/" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 transition text-sm font-medium text-slate-700">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.394.1 2.646.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        Zenidp
+                    </a>
+                    <a href="https://linkedin.com/in/perbangga" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0a66c2]/10 border border-[#0a66c2]/20 hover:bg-[#0a66c2]/20 transition text-sm font-medium text-[#0a66c2]">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        in/perbangga
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="md:col-span-2 glass-card rounded-2xl p-8">
+                <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-accent1"></span> About Me
+                </h3>
+                <p class="text-secondary leading-relaxed mb-4">
+                    I am a professional at the Ministry of ATR/BPN by day, and a relentless Web3 Architect by night. I specialize in bridging traditional legal frameworks with decentralized technologies.
+                </p>
+                <p class="text-secondary leading-relaxed">
+                    As a <span class="text-primary font-semibold">Crypto Native</span> and Solo Founder, my ultimate satisfaction comes from building platforms that solve real-world problems. <strong>I am driven by the challenge of architecting robust financial infrastructures that are transparent, secure, and ready for global adoption.</strong>
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 bg-gradient-to-br from-white to-blue-50/50">
+                <h3 class="text-lg font-bold text-primary mb-4">The Hardest Problem</h3>
+                <p class="text-secondary text-sm leading-relaxed">
+                    Bridging law with Web3. In <strong>TRWASET</strong>, I made properties liquid by mapping subrogation & cessie into smart contracts. In <strong>Solinkify</strong>, I replaced costly fiat fees with a 0.4% instant wallet gateway. True innovation lies in simplifying complexity.
+                </p>
+            </div>
+
+            <div class="md:col-span-3 glass-card rounded-2xl p-8">
+                <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-accent2"></span> Built from Scratch (Startups)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-4 font-bold">TR</div>
+                        <h4 class="text-primary font-bold mb-2">TRWASET | trwaset.com</h4>
+                        <p class="text-secondary text-sm">RWA Tokenization platform transforming illiquid property assets into liquid digital assets using legal-backed smart contracts.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-100 text-cyan-600 flex items-center justify-center mb-4 font-bold">SO</div>
+                        <h4 class="text-primary font-bold mb-2">Solinkify | solinkify.com</h4>
+                        <p class="text-secondary text-sm">Omni-agent ecosystem on the Solana network merging autonomous AI (x402), borderless commerce (Blinks), and DePIN.</p>
+                    </div>
+                    <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-accent1/30 hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4 font-bold">ZE</div>
+                        <h4 class="text-primary font-bold mb-2">Zenith2194 Escrow | zenith2194.pinet.com</h4>
+                        <p class="text-secondary text-sm">A trusted, zero-downtime third-party escrow service built on the Pi Network to ensure completely secure transactions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 glass-card rounded-2xl p-8">
+                <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-accent1"></span> Professional Experience
+                </h3>
+                <div class="relative border-l-2 border-slate-200 ml-3 pl-6 pb-8">
+                    <div class="absolute w-3.5 h-3.5 bg-accent1 rounded-full -left-[9px] top-1.5 shadow-[0_0_0_4px_rgba(37,99,235,0.2)]"></div>
+                    <h4 class="text-primary font-bold text-lg">Computer Institutions</h4>
+                    <p class="text-accent1 font-medium text-sm mb-3">Ministry of ATR/BPN, Indonesia • 2019 - Present</p>
+                    <ul class="text-secondary text-sm list-disc ml-4 space-y-2">
+                        <li>Created <strong>Senta (sentuh-tanahku-ai)</strong>, an AI Agent for answering public land matter inquiries.</li>
+                        <li>Architected innovations combining Cessie & Subrogation business flows into the Web3 ecosystem on Solana for property tokenization.</li>
+                    </ul>
+                </div>
+                <div class="relative border-l-2 border-transparent ml-3 pl-6">
+                    <div class="absolute w-3.5 h-3.5 bg-slate-300 rounded-full -left-[9px] top-1.5 border-2 border-white"></div>
+                    <h4 class="text-primary font-bold text-lg">B.S. Computer System</h4>
+                    <p class="text-secondary font-medium text-sm mb-2">Universitas Komputer Indonesia (UNIKOM) • 2013 - 2017</p>
+                    <p class="text-slate-500 text-sm">Created a SmartHome Concept directly from the Internet using VPS and Arduino as a controller and logic processor.</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-lg font-bold text-primary mb-6">Tech Stack & Interests</h3>
+                <div class="mb-6">
+                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Blockchain</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-50 border border-blue-100 text-blue-700 rounded-md text-xs font-medium">Solana</span>
+                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Rust</span>
+                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Anchor</span>
+                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Blinks</span>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Engineering</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Backend / Infra</span>
+                        <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 rounded-md text-xs font-medium">Fullstack</span>
+                        <span class="px-3 py-1 bg-cyan-50 border border-cyan-100 text-cyan-700 rounded-md text-xs font-medium">AI / ML</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-3">Focus Areas</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">RWA</span>
+                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">DePIN</span>
+                        <span class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-md text-xs font-medium">AI Agents</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
